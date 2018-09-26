@@ -1,4 +1,4 @@
-curl "https://wdi-library-api.herokuapp.com/examples" \
+curl "https://tic-tac-toe-wdi.herokuapp.com/game-client" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
