@@ -48,11 +48,24 @@ const signOutFailure = function () {
   $('#display-message').css('corlor', 'red')
 }
 
+const newGameSuccess = function () {
+  $('#display-message').html('New Game!')
+  $('#display-message').css('corlor', 'green')
+  $('#board').trigger('reset')
+}
+
+const newGameFailure = function () {
+  $('#display-message').html('Something went wrong, please try again')
+  $('#display-message').css('corlor', 'red')
+}
+
 module.exports = {
   signUpSucess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  newGameSuccess,
+  newGameFailure
 }

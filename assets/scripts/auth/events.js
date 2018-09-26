@@ -30,13 +30,20 @@ const onChangePassword = function (event) {
 
 const onSignOut = function () {
   api.signOut()
-    .then(console.log)
-    .catch(console.log)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
+const onNewGame = function () {
+  api.newGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
 }
 
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onNewGame
 }
