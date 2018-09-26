@@ -8,7 +8,7 @@ const createExample = function (exampleData) {
     url: config.apiUrl + '/examples',
     metod: 'POST',
     headers: {
-      Authorization: `TOken token=${store.user.token}`
+      Authorization: `Token token=${store.user.token}`
     },
     data: exampleData
   })
