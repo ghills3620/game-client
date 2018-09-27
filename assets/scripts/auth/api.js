@@ -40,13 +40,19 @@ const signOut = function () {
   })
 }
 
-const newGame = function () {
+const newGame = function (event) {
   return $.ajax({
     url: config.apiUrl + '/games/:id',
     method: 'PATCH',
-    headers: {
-      Authorization: `Token token=${store.user.token}`
-    }
+    data: event
+  })
+}
+
+const playGame = function (event) {
+  return $.ajax({
+    url: config.apiUrl + '/games/:id',
+    method: 'PATCH',
+    data: event
   })
 }
 module.exports = {
@@ -54,5 +60,6 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  newGame
+  newGame,
+  playGame
 }

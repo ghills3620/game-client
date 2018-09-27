@@ -59,6 +59,16 @@ const newGameFailure = function () {
   $('#display-message').css('corlor', 'red')
 }
 
+const playGameSuccess = function () {
+  $('#display-message').html('Good Turn')
+  $('#display-message').css('corlor', 'green')
+}
+
+const playGameFailure = function () {
+  $('#display-message').html('Try Again')
+  $('#display-message').css('corlor', 'red')
+}
+
 module.exports = {
   signUpSucess,
   signUpFailure,
@@ -67,5 +77,7 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   newGameSuccess,
-  newGameFailure
+  newGameFailure,
+  playGameSuccess,
+  playGameFailure
 }
