@@ -14,6 +14,7 @@ const ui = require('./ui.js')
 
 const onPlayGame = function (event) {
   event.preventDefault()
+
   api.playGame(event)
     .then(ui.playGameSuccess)
     .catch(ui.playGameFailure)
