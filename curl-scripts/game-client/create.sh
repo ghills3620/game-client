@@ -1,12 +1,19 @@
-curl "https://tic-tac-toe-wdi.herokuapp.com/game-client" \
+curl "https://tic-tac-toe-wdi.herokuapp.com/games" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-    "example": {
-      "text": "'"${TEXT}"'"
-    }
+        "game": {
+          "id": "'"${ID}"'",
+          "cells":["","","","","","","","",""],
+          "over": false,
+          "player_x": {
+              "id": 1,
+              "email": "'"${EMAIL}"'"
+            },
+            "player_x": null
+        }
   }'
 
 echo
