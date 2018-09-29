@@ -40,11 +40,13 @@ const signOut = function () {
   })
 }
 
-const newGame = function (event) {
+const newGame = function () {
   return $.ajax({
-    url: config.apiUrl + '/games/:id',
-    method: 'PATCH',
-    data: event
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
   })
 }
 
@@ -52,7 +54,16 @@ const playGame = function (event) {
   return $.ajax({
     url: config.apiUrl + '/games/:id',
     method: 'PATCH',
-    data: event
+    data: {
+      'game': {
+        'cell': {
+          'index': 0,
+          'value': 'x'
+        },
+        'over': false
+      }
+    }
+
   })
 }
 module.exports = {

@@ -51,7 +51,7 @@ const signOutFailure = function () {
 const newGameSuccess = function () {
   $('#display-message').html('New Game!')
   $('#display-message').css('corlor', 'green')
-  $('#board').trigger('reset')
+  $('#square').trigger('reset')
 }
 
 const newGameFailure = function () {
