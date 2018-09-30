@@ -8,7 +8,9 @@ Tic-tac-toe (also known as noughts and crosses or Xs and Os) is a paper-and-penc
 
 Sign up with any valid email account to join. You will git to play againt an opponent of your choice. Once logged in with valid user name and password you may begin to play.
 
-Your goal is to win the tic-tac-toe board by getting three in a row - either across, down, or diagonally. One player will start the game by placing thier designated letter on the board. Roatatig back and forth until there is a winner. Once a winner is determined the game is over and no other moves can be made to the board. If choosen a new game can be started.
+Your goal is to win the tic-tac-toe board by getting three in a row - either across, down, or diagonally. One player will start the game by placing thier designated letter on the board. Roatatig back and forth until there is a winner. Once a winner is determined the game is over and no other moves can be made to the board. If choosen a new game can be started
+
+- [Play the game here](https://)
 
 ## Additional Resources
 

@@ -3,7 +3,7 @@
 // const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
-const js = require('../../index.js')
+const js = require('./../../index.js')
 
 // const onCreate = function (event) {
 //   event.preventDefault()
@@ -25,6 +25,10 @@ const onPlayGame = function (event) {
     const currentPlayer = js.takeTurn(clickedPosition)
     $(event.target).text(currentPlayer)
     const winner = js.checkForWinner(js.board)
+    if (winner === 'winner is x' || winner === 'winner is o') {
+      // console.log(winner)
+      return winner
+    }
     $('#message').text('Winner is ' + winner)
 
     // api.playGame(event)
@@ -35,7 +39,8 @@ const onPlayGame = function (event) {
 }
 module.exports = {
   // onCreate,
-  onPlayGame
+  onPlayGame,
+
 }
 
 // let click = 0

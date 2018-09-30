@@ -1,17 +1,24 @@
 @import '~bootstrap/scss/bootstrap';
 
-.border {
-  border: 3px solid #000;
-  margin: 20px;
-  padding: 20px;
+body {
+  color: #000000;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  text-align: center;
 }
+
+// }
+// .border {
+//   border: 3px solid #000;
+//   margin: 20px;
+//   padding: 20px;
+// }
 
 .hidden {
   display: none;
 
 }
 
-@import '~bootstrap/scss/bootstrap';
 
 $background-color: #919ade;
 $font-color: #dfdfdf;
