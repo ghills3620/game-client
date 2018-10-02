@@ -2,8 +2,9 @@
 
 // const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
-const ui = require('./ui.js')
+const ui = require('../auth/ui.js')
 const js = require('./../../index.js')
+const store = require('../store.js')
 
 // const onCreate = function (event) {
 //   event.preventDefault()
@@ -22,24 +23,22 @@ const onPlayGame = function (event) {
   if ($(event.target)[0].innerText === '') {
     // console.log(js.currentPlayer)
     // $(event.target).text(js.currentPlayer)
-    const currentPlayer = js.takeTurn(clickedPosition)
-    $(event.target).text(currentPlayer)
-    const winner = js.checkForWinner(js.board)
+    js.takeTurn(clickedPosition, event)
+    console.log(clickedPosition, event)
+    const winner = js.checkForWinner(store.board)
     if (winner === 'winner is x' || winner === 'winner is o') {
       // console.log(winner)
       return winner
     }
-    $('#message').text('Winner is ' + winner)
-
-    // api.playGame(event)
-    //   .then(ui.playGameSuccess)
-    //   .catch(ui.playGameFailure)
-    // console.log($(event.target)[0].innerText === '')
+    $('#message').text(winner)
+    api.playGame(event.target.getAttribute('id'))
+      .then(ui.playGameSuccess)
+      .catch(ui.playGameFailure)
   }
 }
 module.exports = {
   // onCreate,
-  onPlayGame,
+  onPlayGame
 
 }
 

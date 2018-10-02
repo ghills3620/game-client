@@ -1,9 +1,10 @@
+const store = require('./scripts/store.js')
 // 1.  create empty game board
 // 2.  have empty board = and empty array
-const board = ['', '', '', '', '', '', '', '', '']
+// const board = ['', '', '', '', '', '', '', '', '']
 
 // 3.  create signed in player = to player_x
-let currentPlayer = 'x'
+// let currentPlayer = 'x'
 //
 //  4.  add current player to position on board
 // board[0] = currentPlayer
@@ -16,26 +17,26 @@ let currentPlayer = 'x'
 
 // 7. Write a function that accepts a board position and adds the currentPlayer to it on the board
 const addPlayerToBoard = function (boardPosition) {
-  if (board[boardPosition] > board[8]) {
+  if (store.board[boardPosition] > store.board[8]) {
     return 'Warning: Not a vaild choice'
   }
-  board[boardPosition] = currentPlayer
+  store.board[boardPosition] = store.currentPlayer
   // if (checkForWinner === true) {
   //   return 'working'
   // }
 }
 // 8.  Write a function that rotates the turn
 const rotatePlayer = function () {
-  if (currentPlayer === 'x') {
-    currentPlayer = 'o'
+  if (store.currentPlayer === 'x') {
+    store.currentPlayer = 'o'
   } else {
-    currentPlayer = 'x'
+    store.currentPlayer = 'x'
   }
-  return currentPlayer
+  return store.currentPlayer
 }
 
 // Write a function that checks if someone wins the game
-const checkForWinner = function () {
+const checkForWinner = function (board) {
   // check for top row winner by seeing if all match and are not empty string
   if (board[0] === board[1] && board[1] === board[2] && board[0] !== board['']) {
     return 'Winner is ' + board[0]
@@ -67,28 +68,33 @@ const checkForWinner = function () {
   }
   if (board[0] === board[4] && board[4] === board[8] && board[0] !== board['']) {
     return 'Winner is ' + board[0]
-  } else {
+  }
+  if (!(board[0] === '' || board[0] === '' || board[0] === '' || board[0] === '' ||
+  board[0] === '' || board[0] === '' || board[0] === '' || board[0] === '' ||
+  board[0] === '')) {
+    return 'Its a tie'
   }
 }
 
 // 11. Write a function that doesn't allow occupied spots to be choosen
 const spotTaken = function (boardPosition) {
-  if (board[boardPosition] === 'x' || board[boardPosition] === 'o') {
+  if (store.board[boardPosition] === 'x' || store.board[boardPosition] === 'o') {
     return true
   }
   return false
 }
 
-const takeTurn = function (boardPosition) {
-  const winner = checkForWinner(board)
-  console.log(winner)
+const takeTurn = function (boardPosition, event) {
+  const winner = checkForWinner(store.board)
+  // console.log(winner)
   if (spotTaken(boardPosition) === false) {
     addPlayerToBoard(boardPosition)
+    $(event.target).text(store.currentPlayer)
     rotatePlayer()
     // console.log(checkForWinner(board))
-    checkForWinner(board)
+    checkForWinner(store.board)
   }
-  return currentPlayer
+  return store.currentPlayer
   // if (spotTaken(boardPosition) === false) {
   //   addPlayerToBoard(1)
   //   checkForWinner()
@@ -146,8 +152,7 @@ const takeTurn = function (boardPosition) {
 module.exports = {
   takeTurn,
   addPlayerToBoard,
-  board,
   rotatePlayer,
-  currentPlayer
+  checkForWinner
 
 }

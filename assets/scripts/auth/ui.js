@@ -2,6 +2,7 @@
 
 const store = require('../store.js')
 
+$('#square').addClass('hidden')
 const signUpSucess = function () {
   $('#display-message').html('Sign up successful')
   $('#display-message').css('color', 'green')
@@ -41,6 +42,7 @@ const signOutSuccess = function (response) {
   $('#sign-in-form').removeClass('hidden')
   $('#change-password-form').addClass('hidden')
   $('#sign-out-button').addClass('hidden')
+  $('#square').addClass('hidden')
 }
 
 const signOutFailure = function () {
@@ -48,10 +50,15 @@ const signOutFailure = function () {
   $('#display-message').css('corlor', 'red')
 }
 
-const newGameSuccess = function () {
+const newGameSuccess = function (data) {
   $('#display-message').html('New Game!')
   $('#display-message').css('corlor', 'green')
-  $('#square').trigger('reset')
+  $('#square').removeClass('hidden')
+  // $('#square').remove('reset
+  for (let i = 0; i < 9; i++) {
+    $(`#${i}`).html('')
+  }
+  store.game = data
 }
 
 const newGameFailure = function () {
@@ -59,12 +66,19 @@ const newGameFailure = function () {
   $('#display-message').css('corlor', 'red')
 }
 
-const playGameSuccess = function () {
-  $('#display-message').html('Good Turn')
+const playGameSuccess = function (data) {
+  console.log(data)
+  $('#display-message').html('Your Turn ' + store.currentPlayer)
   $('#display-message').css('corlor', 'green')
+  if (store.game.game.cells === (store.board)) {
+    console.log(store.game.game.cells.array[0])
+    return 'game over'
+  } else {
+    return 'keep playing'
+  }
 }
 
-const playGameFailure = function () {
+const playGameFailure = function (data) {
   $('#display-message').html('Try Again')
   $('#display-message').css('corlor', 'red')
 }

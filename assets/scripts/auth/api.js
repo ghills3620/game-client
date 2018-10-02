@@ -49,28 +49,10 @@ const newGame = function () {
     }
   })
 }
-
-const playGame = function (event) {
-  return $.ajax({
-    url: config.apiUrl + '/games/:id',
-    method: 'PATCH',
-    data: {
-      'game': {
-        'cell': {
-          'index': 0,
-          'value': 'x'
-        },
-        'over': false
-      }
-    }
-
-  })
-}
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  newGame,
-  playGame
+  newGame
 }
