@@ -20,21 +20,27 @@ const onPlayGame = function (event) {
   const clickedPosition = parseInt(event.target.getAttribute('id'))
   // js.takeTurn(clickedPosition)
 
+// console.log(store.winner)
+  // if (store.winner === true) {
+  console.log('i am ' + store.winner)
   if ($(event.target)[0].innerText === '') {
     // console.log(js.currentPlayer)
     // $(event.target).text(js.currentPlayer)
     js.takeTurn(clickedPosition, event)
     console.log(clickedPosition, event)
     const winner = js.checkForWinner(store.board)
-    if (winner === 'winner is x' || winner === 'winner is o') {
+    if (store.winner[1] === 'winner is x' || store.winner[1] === 'winner is o') {
       // console.log(winner)
       return winner
     }
     $('#message').text(winner)
+
     api.playGame(event.target.getAttribute('id'))
       .then(ui.playGameSuccess)
       .catch(ui.playGameFailure)
+      console.log('API' + store.board)
   }
+  // }
 }
 module.exports = {
   // onCreate,

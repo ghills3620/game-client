@@ -3,7 +3,7 @@
 const store = require('../store.js')
 
 $('#square').addClass('hidden')
-const signUpSucess = function () {
+const signUpSuccess = function () {
   $('#display-message').html('Sign up successful')
   $('#display-message').css('color', 'green')
   $('#sign-up-form').trigger('reset')
@@ -11,7 +11,7 @@ const signUpSucess = function () {
 
 const signUpFailure = function () {
   $('#display-message').html('Something went wrong, please try again')
-  $('#display-message').css('corlor', 'red')
+  $('#display-message').css('color', 'red')
   $('#sign-up-form').trigger('reset')
 }
 
@@ -27,32 +27,46 @@ const signInSuccess = function (response) {
   $('#sign-in-form').addClass('hidden')
   $('#change-password-form').removeClass('hidden')
   $('#sign-out-button').removeClass('hidden')
+  $('#new-game').removeClass('hidden')
+}
+
+const changePasswordSuccess = function (response) {
+  $('#display-message').html('Change password succesful')
+  $('#display-message').css('color', 'green')
+  $('#change-password-form').trigger('reset')
+}
+
+const changePasswordFailure = function (response) {
+  $('#change-password-form').html('Password Failed to change, please try again')
+  $('#change-password-form').css('color', 'red')
+  $('#change-password-form').trigger('reset')
 }
 
 const signInFailure = function () {
   $('#display-message').html('Something went wrong, please try again')
-  $('#display-message').css('corlor', 'red')
+  $('#display-message').css('color', 'red')
   $('#sign-in-form').trigger('reset')
 }
 
 const signOutSuccess = function (response) {
-  $('#display-message').html('Sign Out successful')
+  $('#display-message').html('Signout Succesful')
   $('#display-message').css('color', 'green')
   $('#sign-up-form').removeClass('hidden')
   $('#sign-in-form').removeClass('hidden')
   $('#change-password-form').addClass('hidden')
   $('#sign-out-button').addClass('hidden')
   $('#square').addClass('hidden')
+  $('#new-game').addClass('hidden')
 }
 
 const signOutFailure = function () {
   $('#display-message').html('Something went wrong, please try again')
-  $('#display-message').css('corlor', 'red')
+  $('#display-message').css('color', 'red')
 }
 
 const newGameSuccess = function (data) {
   $('#display-message').html('New Game!')
-  $('#display-message').css('corlor', 'green')
+  $('#display-message').css('color', 'green')
   $('#square').removeClass('hidden')
   // $('#square').remove('reset
   for (let i = 0; i < 9; i++) {
@@ -63,28 +77,22 @@ const newGameSuccess = function (data) {
 
 const newGameFailure = function () {
   $('#display-message').html('Something went wrong, please try again')
-  $('#display-message').css('corlor', 'red')
+  $('#display-message').css('color', 'red')
 }
 
 const playGameSuccess = function (data) {
   console.log(data)
   $('#display-message').html('Your Turn ' + store.currentPlayer)
-  $('#display-message').css('corlor', 'green')
-  if (store.game.game.cells === (store.board)) {
-    console.log(store.game.game.cells.array[0])
-    return 'game over'
-  } else {
-    return 'keep playing'
-  }
+  $('#display-message').css('color', 'green')
 }
 
 const playGameFailure = function (data) {
   $('#display-message').html('Try Again')
-  $('#display-message').css('corlor', 'red')
+  $('#display-message').css('color', 'red')
 }
 
 module.exports = {
-  signUpSucess,
+  signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
@@ -93,5 +101,7 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   playGameSuccess,
-  playGameFailure
+  playGameFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }

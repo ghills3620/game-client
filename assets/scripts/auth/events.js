@@ -9,6 +9,7 @@ const store = require('../store.js')
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
+  console.log(event.target)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -26,8 +27,8 @@ const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.changePassword(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
 }
 
 const onSignOut = function () {
