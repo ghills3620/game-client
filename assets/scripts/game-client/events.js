@@ -6,14 +6,6 @@ const ui = require('../auth/ui.js')
 const js = require('./../../index.js')
 const store = require('../store.js')
 
-// const onCreate = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   api.createExample(data)
-//     .then(console.log)
-//     .catch(console.log)
-// }
-
 const onPlayGame = function (event) {
   event.preventDefault()
   // console.log(parseInt(event.target.getAttribute('id')))
