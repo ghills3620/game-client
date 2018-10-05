@@ -7,25 +7,24 @@ const signUpSuccess = function () {
   $('#display-message').html('Sign up successful')
   $('#display-message').css('color', 'green')
   $('#sign-up-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
 }
 
 const signUpFailure = function () {
   $('#display-message').html('Something went wrong, please try again')
   $('#display-message').css('color', 'red')
   $('#sign-up-form').trigger('reset')
-  $('#sign-up-form').trigger('reset')
-  $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
   $('#change-password-form').trigger('reset')
-  $('#change-password-form').trigger('reset')
-  $('#sign-in-form').trigger('reset')
-  $('#new-game').addClass('hidden')
 }
 
 const signInSuccess = function (response) {
   $('#display-message').html('Sign in successful')
   $('#display-message').css('color', 'green')
+  $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
   console.log('store before adding user key', store)
   store.user = response.user
   console.log('store after adding user key', store)
@@ -35,45 +34,26 @@ const signInSuccess = function (response) {
   $('#change-password-form').removeClass('hidden')
   $('#sign-out-button').removeClass('hidden')
   $('#new-game').removeClass('hidden')
-  $('#sign-up-form').trigger('reset')
-  $('#sign-up-form').trigger('reset')
-  $('#sign-in-form').trigger('reset')
-  $('#change-password-form').trigger('reset')
-  $('#change-password-form').trigger('reset')
-  $('#sign-in-form').trigger('reset')
-  $('#new-game').addClass('hidden')
-}
-
-const changePasswordSuccess = function (response) {
-  $('#display-message').html('Change password succesful')
-  $('#display-message').css('color', 'green')
-  $('#change-password-form').trigger('reset')
-  $('#sign-up-form').trigger('reset')
-  $('#sign-up-form').trigger('reset')
-  $('#sign-in-form').trigger('reset')
-  $('#change-password-form').trigger('reset')
-  $('#change-password-form').trigger('reset')
-  $('#sign-in-form').trigger('reset')
-  $('#new-game').addClass('hidden')
-}
-
-const changePasswordFailure = function (response) {
-  $('#change-password-form').html('Password Failed to change, please try again')
-  $('#change-password-form').css('color', 'red')
-  $('#change-password-form').trigger('reset')
-  $('#sign-up-form').trigger('reset')
-  $('#sign-up-form').trigger('reset')
-  $('#sign-in-form').trigger('reset')
-  $('#change-password-form').trigger('reset')
-  $('#change-password-form').trigger('reset')
-  $('#sign-in-form').trigger('reset')
-  $('#new-game').addClass('hidden')
 }
 
 const signInFailure = function () {
   $('#display-message').html('Something went wrong, please try again')
   $('#display-message').css('color', 'red')
   $('#sign-in-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+}
+
+const changePasswordSuccess = function (response) {
+  $('#display-message').html('Change password succesful')
+  $('#display-message').css('color', 'green')
+  $('#change-password-form').trigger('reset')
+}
+
+const changePasswordFailure = function (response) {
+  $('#change-password-form').html('Password Failed to change, please try again')
+  $('#change-password-form').css('color', 'red')
+  $('#change-password-form').trigger('reset')
 }
 
 const signOutSuccess = function (response) {
@@ -85,6 +65,9 @@ const signOutSuccess = function (response) {
   $('#sign-out-button').addClass('hidden')
   $('#square').addClass('hidden')
   $('#new-game').addClass('hidden')
+  $('#change-password-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
 }
 
 const signOutFailure = function () {
@@ -95,7 +78,9 @@ const signOutFailure = function () {
 const newGameSuccess = function (data) {
   $('#display-message').html('New Game!')
   $('#display-message').css('color', 'green')
+  $('#change-password-form').trigger('reset')
   $('#square').removeClass('hidden')
+  // $('#square').remove('reset
   for (let i = 0; i < 9; i++) {
     $(`#${i}`).html('')
   }
@@ -105,6 +90,7 @@ const newGameSuccess = function (data) {
 const newGameFailure = function () {
   $('#display-message').html('Something went wrong, please try again')
   $('#display-message').css('color', 'red')
+  $('#change-password-form').trigger('reset')
 }
 
 const playGameSuccess = function (data) {
