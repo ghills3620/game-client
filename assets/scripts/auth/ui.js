@@ -13,6 +13,13 @@ const signUpFailure = function () {
   $('#display-message').html('Something went wrong, please try again')
   $('#display-message').css('color', 'red')
   $('#sign-up-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#new-game').addClass('hidden')
 }
 
 const signInSuccess = function (response) {
@@ -28,18 +35,39 @@ const signInSuccess = function (response) {
   $('#change-password-form').removeClass('hidden')
   $('#sign-out-button').removeClass('hidden')
   $('#new-game').removeClass('hidden')
+  $('#sign-up-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#new-game').addClass('hidden')
 }
 
 const changePasswordSuccess = function (response) {
   $('#display-message').html('Change password succesful')
   $('#display-message').css('color', 'green')
   $('#change-password-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#new-game').addClass('hidden')
 }
 
 const changePasswordFailure = function (response) {
   $('#change-password-form').html('Password Failed to change, please try again')
   $('#change-password-form').css('color', 'red')
   $('#change-password-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
+  $('#sign-up-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+  $('#change-password-form').trigger('reset')
+  $('#sign-in-form').trigger('reset')
+  $('#new-game').addClass('hidden')
 }
 
 const signInFailure = function () {
@@ -68,7 +96,6 @@ const newGameSuccess = function (data) {
   $('#display-message').html('New Game!')
   $('#display-message').css('color', 'green')
   $('#square').removeClass('hidden')
-  // $('#square').remove('reset
   for (let i = 0; i < 9; i++) {
     $(`#${i}`).html('')
   }
