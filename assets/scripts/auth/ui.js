@@ -34,6 +34,7 @@ const signInSuccess = function (response) {
   $('#change-password-form').removeClass('hidden')
   $('#sign-out-button').removeClass('hidden')
   $('#new-game').removeClass('hidden')
+  $('#get-games').removeClass('hidden')
 }
 
 const signInFailure = function () {
@@ -104,6 +105,16 @@ const playGameFailure = function (data) {
   $('#display-message').css('color', 'red')
 }
 
+const getGameSucess = function (data) {
+  $('#display-message').html(`You have play ${data.games.length} games`)
+  $('#square').addClass('hidden')
+}
+
+const getGameFailure = function (data) {
+  $('#display-message').html('Your games failed to load, Try Again')
+  $('#square').addClass('hidden')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -116,5 +127,7 @@ module.exports = {
   playGameSuccess,
   playGameFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  getGameSucess,
+  getGameFailure
 }

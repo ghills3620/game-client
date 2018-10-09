@@ -48,10 +48,14 @@ const onNewGame = function (event) {
 }
 
 const onGetGames = function (event) {
-  const data = getFormFields
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log('i am 1st ', event.target)
   api.getGames(data)
-    .then(console.log(data))
-    .catch(console.log(event))
+    // .then(console.log('i am ', event.target))
+    // .catch(console.log('i am ', event.target))
+    .then(ui.getGameSucess)
+    .catch(ui.getGameFailure)
 }
 
 module.exports = {
