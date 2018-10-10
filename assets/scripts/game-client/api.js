@@ -17,7 +17,7 @@ const playGame = function (clickedPosition) {
           'index': `${clickedPosition}`,
           'value': `${store.currentPlayer}`
         },
-        'over': false
+        'over': `${store.winner}`
       }
     }
 

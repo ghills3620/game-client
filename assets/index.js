@@ -39,8 +39,6 @@ const rotatePlayer = function () {
 const checkForWinner = function (board) {
   // check for top row winner by seeing if all match and are not empty string
   if (board[0] === board[1] && board[1] === board[2] && board[0] !== board['']) {
-    // return 'Winner is ' + board[0]
-    console.log('1st win option')
     return [true, 'Winner  ' + board[0]]
   }
   if (board[3] === board[4] && board[4] === board[5] && board[3] !== board['']) {
@@ -92,7 +90,7 @@ const spotTaken = function (boardPosition) {
 const takeTurn = function (boardPosition, event) {
   store.winner = checkForWinner(store.board)
   console.log(store.winner[0])
-  console.log('i am' + store.board)
+  // console.log('i am' + store.board)
   // console.log(winner)
   if (spotTaken(boardPosition) === false) {
     addPlayerToBoard(boardPosition)

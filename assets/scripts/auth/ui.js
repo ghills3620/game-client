@@ -95,9 +95,10 @@ const newGameFailure = function () {
 }
 
 const playGameSuccess = function (data) {
-  console.log(data)
-  $('#display-message').html('Your Turn ' + store.currentPlayer)
-  $('#display-message').css('color', 'green')
+  if (store.game.game.over !== store.winner[0]) {
+    $('#display-message').html('Your Turn ' + store.currentPlayer)
+    $('#display-message').css('color', 'green')
+  }
 }
 
 const playGameFailure = function (data) {
