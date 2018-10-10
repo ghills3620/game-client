@@ -38,35 +38,35 @@ const rotatePlayer = function () {
 // Write a function that checks if someone wins the game
 const checkForWinner = function (board) {
   // check for top row winner by seeing if all match and are not empty string
-  if (board[0] === board[1] && board[1] === board[2] && board[0] !== board['']) {
+  if (board[0] === board[1] && board[1] === board[2] && board[0] !== '') {
     return [true, 'Winner  ' + board[0]]
   }
-  if (board[3] === board[4] && board[4] === board[5] && board[3] !== board['']) {
+  if (board[3] === board[4] && board[4] === board[5] && board[3] !== '') {
     return [true, 'Winner is ' + board[3]]
     // return 'Winner is ' + board[3]
   }
-  if (board[6] === board[7] && board[7] === board[8] && board[6] !== board['']) {
+  if (board[6] === board[7] && board[7] === board[8] && board[6] !== '') {
     return [true, 'Winner is ' + board[6]]
     // return 'Winner is ' + board[6]
   }
-  if (board[0] === board[3] && board[3] === board[6] && board[0] !== board['']) {
+  if (board[0] === board[3] && board[3] === board[6] && board[0] !== '') {
     return [true, 'Winner is ' + board[0]]
     // return 'Winner is ' + board[0]
   }
-  if (board[1] === board[4] && board[4] === board[7] && board[1] !== board['']) {
+  if (board[1] === board[4] && board[4] === board[7] && board[1] !== '') {
     return [true, 'Winner is ' + board[1]]
     // return 'Winner is ' + board[1]
   }
-  if (board[2] === board[5] && board[5] === board[8] && board[2] !== board['']) {
+  if (board[2] === board[5] && board[5] === board[8] && board[2] !== '') {
     return [true, 'Winner is ' + board[2]]
     // return 'Winner is ' + board[2]
   }
-  if (board[0] === board[2] && board[2] === board[6] && board[0] !== board['']) {
+  if (board[0] === board[4] && board[4] === board[8] && board[0] !== '') {
     return [true, 'Winner is ' + board[0]]
     // return 'Winner is ' + board[0]
   }
-  if (board[0] === board[4] && board[4] === board[8] && board[0] !== board['']) {
-    return [true, 'Winner is ' + board[0]]
+  if (board[2] === board[4] && board[4] === board[6] && board[2] !== '') {
+    return [true, 'Winner is ' + board[2]]
     // return 'Winner is ' + board[0]
   }
   if (!(board[0] === '' || board[1] === '' || board[2] === '' || board[3] === '' ||
@@ -88,16 +88,16 @@ const spotTaken = function (boardPosition) {
 }
 
 const takeTurn = function (boardPosition, event) {
-  store.winner = checkForWinner(store.board)
-  console.log(store.winner[0])
-  // console.log('i am' + store.board)
-  // console.log(winner)
+  // // console.log('i am' + store.board)
+  // // console.log(winner)
   if (spotTaken(boardPosition) === false) {
     addPlayerToBoard(boardPosition)
     $(event.target).text(store.currentPlayer)
     rotatePlayer()
-    // console.log(checkForWinner(board))
-    checkForWinner(store.board)
+    // // console.log(checkForWinner(board))
+    // checkForWinner(store.board)
+    store.winner = checkForWinner(store.board)
+    // console.log(store.winner[0])
   }
   return store.currentPlayer
   // if (spotTaken(boardPosition) === false) {
@@ -153,7 +153,7 @@ const takeTurn = function (boardPosition, event) {
 // takeTurn(9)
 // takeTurn(7)
 //
-// console.log(board)
+// // console.log(board)
 module.exports = {
   takeTurn,
   addPlayerToBoard,

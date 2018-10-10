@@ -9,7 +9,7 @@ const store = require('../store.js')
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(event.target)
+  // console.log(event.target)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -50,10 +50,10 @@ const onNewGame = function (event) {
 const onGetGames = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  // console.log('i am 1st ', event.target)
+  // // console.log('i am 1st ', event.target)
   api.getGames(data)
-    // .then(console.log('i am ', event.target))
-    // .catch(console.log('i am ', event.target))
+    // .then(// console.log('i am ', event.target))
+    // .catch(// console.log('i am ', event.target))
     .then(ui.getGameSucess)
     .catch(ui.getGameFailure)
 }

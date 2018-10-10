@@ -4,7 +4,7 @@ const store = require('../store.js')
 const config = require('../config.js')
 
 const playGame = function (clickedPosition) {
-  // console.log('I am clickedPosition', clickedPosition, store.currentPlayer)
+  // // console.log('I am clickedPosition', clickedPosition, store.currentPlayer)
   return $.ajax({
     url: config.apiUrl + `/games/${store.game.game.id}`,
     method: 'PATCH',
@@ -17,7 +17,7 @@ const playGame = function (clickedPosition) {
           'index': `${clickedPosition}`,
           'value': `${store.currentPlayer}`
         },
-        'over': `${store.winner}`
+        'over': `${store.winner[0]}`
       }
     }
 
