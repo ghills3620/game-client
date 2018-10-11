@@ -31,11 +31,10 @@ const signInSuccess = function (response) {
   // console.log('store.user.token', store.user.token)
   $('#sign-up-form').addClass('hidden')
   $('#sign-in-form').addClass('hidden')
-  $('#change-password-form').removeClass('hidden')
+  $('#change-password-form').show()
   $('#sign-out-button').removeClass('hidden')
   $('#new-game').removeClass('hidden')
   $('#get-games').removeClass('hidden')
-  $('#message').addClass('hidden')
 }
 
 const signInFailure = function () {
@@ -44,6 +43,7 @@ const signInFailure = function () {
   $('#sign-in-form').trigger('reset')
   $('#sign-up-form').trigger('reset')
   $('#change-password-form').trigger('reset')
+  $('#change-password-form').show()
 }
 
 const changePasswordSuccess = function (response) {
@@ -53,8 +53,8 @@ const changePasswordSuccess = function (response) {
 }
 
 const changePasswordFailure = function (response) {
-  $('#change-password-form').html('Password Failed to change, please try again')
-  $('#change-password-form').css('color', 'red')
+  $('#display-message').html('Password Failed to change, please try again')
+  $('#display-message').css('color', 'red')
   $('#change-password-form').trigger('reset')
 }
 

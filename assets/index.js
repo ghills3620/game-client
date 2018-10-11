@@ -155,6 +155,7 @@ const takeTurn = function (boardPosition, event) {
 // takeTurn(7)
 //
 // // console.log(board)
+$('#change-password-form').hide()
 module.exports = {
   takeTurn,
   addPlayerToBoard,
