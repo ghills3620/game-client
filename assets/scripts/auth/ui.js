@@ -35,6 +35,7 @@ const signInSuccess = function (response) {
   $('#sign-out-button').removeClass('hidden')
   $('#new-game').removeClass('hidden')
   $('#get-games').removeClass('hidden')
+  $('#message').addClass('hidden')
 }
 
 const signInFailure = function () {
@@ -66,6 +67,7 @@ const signOutSuccess = function (response) {
   $('#sign-out-button').addClass('hidden')
   $('#square').addClass('hidden')
   $('#new-game').addClass('hidden')
+  $('#message').addClass('hidden')
   $('#change-password-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
   $('#sign-up-form').trigger('reset')
@@ -87,7 +89,7 @@ const newGameSuccess = function (data) {
     $(`#${i}`).html('')
   }
   store.game = data
-  // $('#message').addClass('hidden')
+  $('#message').removeClass('hidden')
 }
 
 const newGameFailure = function () {
@@ -97,6 +99,7 @@ const newGameFailure = function () {
 }
 
 const playGameSuccess = function (data) {
+  $('#message').removeClass('hidden')
   if (store.game.game.over !== store.winner[0]) {
     $('#display-message').html('Your Turn ' + store.currentPlayer)
     $('#display-message').css('color', 'green')

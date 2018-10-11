@@ -1,4 +1,5 @@
 const store = require('./scripts/store.js')
+
 // 1.  create empty game board
 // 2.  have empty board = and empty array
 // const board = ['', '', '', '', '', '', '', '', '']
