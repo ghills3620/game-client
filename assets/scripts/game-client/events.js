@@ -11,9 +11,9 @@ const onPlayGame = function (event) {
   const clickedPosition = parseInt(event.target.getAttribute('id'))
   if ($(event.target)[0].innerText === '') {
     js.takeTurn(clickedPosition, event)
-    // api.playGame(clickedPosition)
-    // .then(ui.playGameSuccess)
-    // .catch(ui.playGameFailure)
+    api.playGame(clickedPosition)
+      .then(ui.playGameSuccess)
+      .catch(ui.playGameFailure)
   }
   if (store.winner[0] === true) {
     $('#message').text(store.winner[1])

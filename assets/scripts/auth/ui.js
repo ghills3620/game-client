@@ -89,7 +89,7 @@ const newGameSuccess = function (data) {
     $(`#${i}`).html('')
   }
   store.game = data
-  $('#message').removeClass('hidden')
+  $('#message').addClass('hidden')
 }
 
 const newGameFailure = function () {
@@ -99,8 +99,8 @@ const newGameFailure = function () {
 }
 
 const playGameSuccess = function (data) {
-  $('#message').removeClass('hidden')
-  if (store.game.game.over !== store.winner[0]) {
+  if (store.winner[0] === false) {
+    $('#message').removeClass('hidden')
     $('#display-message').html('Your Turn ' + store.currentPlayer)
     $('#display-message').css('color', 'green')
   }
