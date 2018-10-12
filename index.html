@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>Tic Tac Toe</h1>
+      <h3 id="display-message"></h3>
+
+            <form id="sign-up-form">
+              <legend>Sign Up!</legend>
+              <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+              <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+              <input required placeholder="Enter password_confirmation" name="credentials[password_confirmation]" type="password"/>
+              <input type="submit" />
+            </form>
+
+            <form id="sign-in-form">
+              <legend>Sign In!</legend>
+              <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+              <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+              <input type="submit" />
+            </form>
+
+
+            <form id="change-password-form">
+              <legend>Change Password</legend>
+              <input required placeholder="Old Password" name="passwords[old]" type="password"/>
+              <input required placeholder="New Passowrd" name="passwords[new]" type="password"/>
+              <input type="submit" />
+            </form>
+            <br>
+            <button id="sign-out-button" class=hidden> Sign Out </button>
+            <br>
+            <div id="board"class="container">
+            <!-- Columns are always 50% wide, on mobile and desktop -->
+
+            <div id="square"class="row" class=hidden>
+              <div id="0"class="col-4 col-sm-4 box teal"></div>
+              <div id="1"class="col-4 col-sm-4 box teal"></div>
+              <div id="2"class="col-4 col-sm-4 box teal"></div>
+              <div id="3"class="col-4 col-sm-4 box teal"></div>
+              <div id="4"class="col-4 col-sm-4 box teal"></div>
+              <div id="5"class="col-4 col-sm-4 box teal"></div>
+              <div id="6"class="col-4 col-sm-4 box teal"></div>
+              <div id="7"class="col-4 col-sm-4 box teal"></div>
+              <div id="8"class="col-4 col-sm-4 box teal"></div>
+            </div>
+          </div>
+          <br>
+          <button id="new-game" type=submit class=hidden> New Game </button>
+          <p id='message'></p>
+          <button id="get-games" type=submit class=hidden> Played Games </button>
+
+
+
+    </body>
+</html>
